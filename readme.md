@@ -22,7 +22,6 @@ pip install beautifulsoup
 
 ## Ahora manos a la obra!
 <sup></sup>  
-<sup></sup>  
 
 ### 2. Importamos las librerias instaladas
 
