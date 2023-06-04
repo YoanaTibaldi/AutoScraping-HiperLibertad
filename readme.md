@@ -1,30 +1,40 @@
-# Web Scraping con librería Request
+# Web Scraping a Hiper Libertad
 
-## La razón por la que utilizamos esta libreria es porque en el código fuente del sitio no existe ningún producto sino que se realiza una carga asincrónica de los datos
+El desafio propuesto fue desarrollar un web scraper para la pagina del hiperlibertad para recolescta todos los productos con sus precios de lista, disponibilidad, categorías, entre otros, para cada una de las sucursales, para posteriormente almacenarlos en archivos CSV individuales (uno por sucursal).
+#
+Requerimientos: 
+- request
+- pandas
+- beautifulsoup4
+
+Instalación/ Ejecución del proyecto:
+- Instalar python3 
+- Clonar el repositorio
+- Ejecutar en consola "python data-scraping.py"
+
+#
+Se utilizará la librería request ya que en el código fuente del sitio no existe ningún producto sino que se realiza una carga asincrónica de los datos
 
 <sup></sup>  
 
-## _La siguiente documentación explica el proceso realizado hasta obtener los resultados_
+_La siguiente documentación explica el proceso realizado hasta obtener los resultados_
 
 #
 <sup></sup>  
-### 1. Primero creamos un entorno virtual e instalamos las librerias que vamos a usar durante el proceso:
+1. Primero creamos un entorno virtual e instalamos las librerias que vamos a usar durante el proceso:
 
 ```
 pip install request
 
 pip install pandas
 
-pip install json
-
-pip install beautifulsoup
+pip install beautifulsoup4
 ```
 
 ## Ahora manos a la obra!
 <sup></sup>  
-<sup></sup>  
 
-### 2. Importamos las librerias instaladas
+2. Importamos las librerias instaladas
 
 ```
 import os
@@ -38,21 +48,21 @@ import pandas as pd
 from bs4 import BeautifulSoup
 ```
 
-### - En este caso debemos recolectar datos del siguiente sitio: "https://www.hiperlibertad.com.ar/"
+- En este caso debemos recolectar datos del siguiente sitio: "https://www.hiperlibertad.com.ar/"
 <sup></sup>  
 <sup></sup>  
 
-### 3. Localizamos la api por medio del inspector y comenzamos a observar los parámetros que podemos utilizar para recolectar los datos. Tambien estudiamos bien el sitio web para prestar atención a las sucursales, cantidad de páginas y de productos por cada una de estas.
+3. Localizamos la api por medio del inspector y comenzamos a observar los parámetros que podemos utilizar para recolectar los datos. Tambien estudiamos bien el sitio web para prestar atención a las sucursales, cantidad de páginas y de productos por cada una de estas.
 
-### - Construimos un diccionario, donde sus claves son las categorias y los valores las subcategorías.
-<sup></sup>  
-<sup></sup>  
-
-### 4. Ya teniendo todo esto podemos alterar nuestra api de la siguiente manera: f"https://www.hiperlibertad.com.ar/api/catalog_system/pub/products/search/{categories}/{value}?O=OrderByNameASC&_from={from_}&_to={to_}&ft&sc={sc}"
+- Construimos un diccionario, donde sus claves son las categorias y los valores las subcategorías.
 <sup></sup>  
 <sup></sup>  
 
-### 5. Para poder recorrer cada uno de los productos, pasando por categorías, páginas y sucursales creamos un _bucle for_ y comenzamos a llamar a la api utilizando la librería request:
+4. Ya teniendo todo esto podemos alterar nuestra api de la siguiente manera: f"https://www.hiperlibertad.com.ar/api/catalog_system/pub/products/search/{categories}/{value}?O=OrderByNameASC&_from={from_}&_to={to_}&ft&sc={sc}"
+<sup></sup>  
+<sup></sup>  
+
+5. Para poder recorrer cada uno de los productos, pasando por categorías, páginas y sucursales creamos un _bucle for_ y comenzamos a llamar a la api utilizando la librería request:
 
 ```
 **for** categories, values in categories_list.items():
@@ -67,7 +77,7 @@ from bs4 import BeautifulSoup
 ```
 
 
-### _Esto se integrará dentro de un ciclo while ya que queremos saber si por cada página en la que nos dirige nuestra api hay datos, es decir, productos cargados. Por lo que creamos condicionales._
+_Esto se integrará dentro de un ciclo while ya que queremos saber si por cada página en la que nos dirige nuestra api hay datos, es decir, productos cargados. Por lo que creamos condicionales._
 
 
 ```
@@ -84,6 +94,6 @@ else #si data no es una lista valida, muestra un mensaje de error y rompe el cic
 
 <sup></sup>  
 <sup></sup>  
-### 6. Para crear un archivo csv por cada sucursal creamos un _ciclo for_ que tome la variable para el número de sucursal generando un archivo CSV distinto para cada clave "sc" del diccionario "df_dict" y lo almacene en la carpeta creada _"file_path"_
+6. Para crear un archivo csv por cada sucursal creamos un _ciclo for_ que tome la variable para el número de sucursal generando un archivo CSV distinto para cada clave "sc" del diccionario "df_dict" y lo almacene en la carpeta creada _"file_path"_
 
-### _Nota: Lo que hacemos con BeautifulSoup es limpiar el texto que devuelve el item "Descripcion" de json ya que al recolectarlo contenía tags perteneciente a un formato html_ 
+_Nota: Lo que hacemos con BeautifulSoup es limpiar el texto que devuelve el item "Descripcion" de json ya que al recolectarlo contenía tags perteneciente a un formato html_ 
