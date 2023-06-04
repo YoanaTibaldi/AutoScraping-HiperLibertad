@@ -2,15 +2,11 @@
 
 El desafio propuesto fue desarrollar un web scraper para la pagina del hiperlibertad para recolectar todos los productos con sus precios de lista, disponibilidad, categorías, entre otros, para cada una de las sucursales, para posteriormente almacenarlos en archivos CSV individuales (uno por sucursal).
 #
-Requerimientos: 
-(una vez clonado el proyecto puede instalar los requerimientos con "pip install -r requirements.txt")
-- request
-- pandas
-- beautifulsoup4
 
 Instalación/ Ejecución del proyecto:
 - Instalar python3 
 - Clonar el repositorio
+- Descargar requerimientos: "pip install -r requirements.txt"
 - Ejecutar en consola "python data-scraping.py"
 
 _El resultado se cargará en una carpeta llamada "data". Por lo que puede borrar la carpeta antes de ejecutar el proyecto._
