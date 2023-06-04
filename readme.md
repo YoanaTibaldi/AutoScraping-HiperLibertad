@@ -1,6 +1,6 @@
 # Web Scraping a Hiper Libertad
 
-El desafio propuesto fue desarrollar un web scraper para la pagina del hiperlibertad para recolescta todos los productos con sus precios de lista, disponibilidad, categorías, entre otros, para cada una de las sucursales, para posteriormente almacenarlos en archivos CSV individuales (uno por sucursal).
+El desafio propuesto fue desarrollar un web scraper para la pagina del hiperlibertad para recolectar todos los productos con sus precios de lista, disponibilidad, categorías, entre otros, para cada una de las sucursales, para posteriormente almacenarlos en archivos CSV individuales (uno por sucursal).
 #
 Requerimientos: 
 (una vez clonado el proyecto puede instalar los requerimientos con "pip install -r requirements.txt")
