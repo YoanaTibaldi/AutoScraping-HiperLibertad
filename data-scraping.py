@@ -6,6 +6,9 @@ from bs4 import BeautifulSoup
 
 
 folder_path = "data"
+if not os.path.exists(folder_path):
+    os.makedirs(folder_path)
+
 
 categories_list = {
     'tecnologia': ['tv-y-video', 'audio', 'informatica', 'celulares-y-tablets', 'videojuegos', 'smartwatch'],
