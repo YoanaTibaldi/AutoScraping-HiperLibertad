@@ -1,6 +1,8 @@
-# Web Scraping con librería Request
+# Web Scraping a Hiper Libertad
+#
+## El desafio propuesto fue desarrollar un web scraper para la pagina del hiperlibertad para recolescta todos los productos con sus precios de lista, disponibilidad, categorías, entre otros, para cada una de las sucursales, para posteriormente almacenarlos en archivos CSV individuales (uno por sucursal).
 
-## La razón por la que utilizamos esta libreria es porque en el código fuente del sitio no existe ningún producto sino que se realiza una carga asincrónica de los datos
+## Se utilizará la librería request ya que en el código fuente del sitio no existe ningún producto sino que se realiza una carga asincrónica de los datos
 
 <sup></sup>  
 
