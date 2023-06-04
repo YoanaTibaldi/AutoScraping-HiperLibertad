@@ -17,7 +17,7 @@ pip install request
 
 pip install pandas
 
-pip install beautifulsoup
+pip install beautifulsoup4
 ```
 
 ## Ahora manos a la obra!
