@@ -15,8 +15,6 @@ pip install request
 
 pip install pandas
 
-pip install json
-
 pip install beautifulsoup
 ```
 
